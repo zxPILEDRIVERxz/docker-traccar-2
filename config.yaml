@@ -1,5 +1,5 @@
 name: "Docker Traccar"
-version: "0.22.0"
+version: "0.1.0"
 slug: "docker_traccar"
 description: "Modern GPS Tracking Platform (Updated to Traccar 6.7.3)"
 url: "https://hub.docker.com/r/traccar/traccar"
