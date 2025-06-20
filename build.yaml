@@ -1,0 +1,5 @@
+build_from:
+  aarch64: https://hub.docker.com/r/traccar/traccar
+codenotary:
+  base_image: your.email@example.com
+  signer: your.email@example.com

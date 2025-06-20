@@ -1,0 +1,36 @@
+name: "Docker Traccar"
+version: "0.22.0"
+slug: "docker_traccar"
+description: "Modern GPS Tracking Platform (Updated to Traccar 6.7.3)"
+url: "https://hub.docker.com/r/traccar/traccar"
+webui: "[PROTO:ssl]://[HOST]:[PORT:8082]"
+codenotary: "your.email@example.com"
+panel_icon: "mdi:car-connected"
+startup: services
+arch:
+  - aarch64
+init: false
+host_network: true
+ports:
+  8082/tcp: 8082
+  5055/tcp: 5055
+ports_description:
+  8082/tcp: "Traccar web interface"
+  5055/tcp: "OsmAnd/Traccar Client protocol"
+map:
+  - share:rw
+  - ssl:rw
+  - config/traccar.xml:/opt/traccar/conf/traccar.xml:rw
+  - share/traccar_logs:/opt/traccar/logs:rw
+services:
+  - mysql:want
+options:
+  log_level: "debug"
+  ssl: false
+  certfile: "fullchain.pem"
+  keyfile: "privkey.pem"
+schema:
+  log_level: list(trace|debug|info|notice|warning|error|fatal)?
+  ssl: bool
+  certfile: str
+  keyfile: str
